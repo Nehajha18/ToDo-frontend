@@ -2,7 +2,7 @@ function LoadDashboard() {
     if ($.cookie('userid')) {
         $.ajax({
             method: "get",
-            url: 'https://todo-backend-30gm.onrender.com/appointments/' + $.cookie('userid'),
+            url: 'https://todo-backend-964l.onrender.com/appointments/' + $.cookie('userid'),
             success: (appointments) => {
                 $("section").load("pages/user_dashboard.html", function () {
                     $("#lblUser").html($.cookie('userid'));
@@ -63,7 +63,7 @@ $(function () {
 
         $.ajax({
             method: "post",
-            url: `https://todo-backend-30gm.onrender.com/register-user`,
+            url: `https://todo-backend-964l.onrender.com/register-user`,
             data: user,
             success: () => {
                 alert('User Registered');
@@ -78,7 +78,7 @@ $(function () {
 
         $.ajax({
             method: 'get',
-            url: `https://todo-backend-30gm.onrender.com/users/${user_id}`,
+            url: `https://todo-backend-964l.onrender.com/users/${user_id}`,
             success: (userDetails) => {
                 if (userDetails) {
                     if ($("#password").val() === userDetails.password) {
@@ -121,7 +121,7 @@ $(function () {
 
         $.ajax({
             method: "post",
-            url: `https://todo-backend-30gm.onrender.com/add-appointment`,
+            url: `https://todo-backend-964l.onrender.com/add-appointment`,
             data: appointment,
             success: () => {
                 alert('Appointment Added');
@@ -136,7 +136,7 @@ $(function () {
 
         $.ajax({
             method: "get",
-            url: `https://todo-backend-30gm.onrender.com/appointment/${e.target.value}`,
+            url: `https://todo-backend-964l.onrender.com/appointment/${e.target.value}`,
             success: (appointment) => {
                 $("#appointment_id").val(appointment.appointment_id);
                 $("#title").val(appointment.title);
@@ -163,7 +163,7 @@ $(function () {
 
         $.ajax({
             method: "put",
-            url: `https://todo-backend-30gm.onrender.com/edit-appointment/${sessionStorage.getItem("appointment_id")}`,
+            url: `https://todo-backend-964l.onrender.com/edit-appointment/${sessionStorage.getItem("appointment_id")}`,
             data: appointment,
             success: () => {
                 alert('Appointment Updated Successfully.');
@@ -178,7 +178,7 @@ $(function () {
         if (choice === true) {
             $.ajax({
                 method: "delete",
-                url: `https://todo-backend-30gm.onrender.com/delete-appointment/${e.target.value}`,
+                url: `https://todo-backend-964l.onrender.com/delete-appointment/${e.target.value}`,
                 success: () => {
                     alert('Appointment Deleted');
                     LoadDashboard();
